@@ -1,0 +1,213 @@
+body{
+  background-color: RGB(4,13,70);
+}
+#cabecera{
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+#titulo{
+  margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	border: none;
+	outline: none;
+  margin-block-start: 0.33em;
+  margin-block-end: 0.33em; 
+ }
+
+ #logo{
+  margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	border: none;
+	outline: none;
+  display: -webkit-inline-box;
+  height: 40px;
+  width: 40px;
+  
+}
+
+label{ display: block;
+  margin: 10px;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+margin-right: auto;}
+
+Field{
+  align: center;
+  display: block;}
+
+  img{
+  width: 100%;
+  height: 100%;
+  background-size:     cover;
+  background-repeat:   no-repeat;
+    background-position: center center;
+}
+
+.login{
+  height:100%;
+  background-color: RGB(4,13,70);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-between;
+  line-height : 10px;
+}
+
+
+
+button{
+    display: block;
+    align: center;
+  }
+
+    .App-header {
+        background-color: #282c34;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: calc(5px + 2vmin);
+        color: white;
+      }    
+#boton-login{
+    display: block;
+    margin: 10px;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+#password{
+  display: block;
+  margin: 10px;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+margin-right: auto;
+}
+
+#email{
+  display: block;
+  margin: 10px;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+margin-right: auto;
+}
+
+.loginItem{
+  margin-left: auto;
+  margin-right:auto;
+}
+
+.error{
+  
+  color: red;
+}
+
+a{
+  margin: 5px;
+  color: #198754;
+}
+
+footer{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  text-align: center;
+  font-size: calc(1.6vmin);
+  line-height : 1px;
+}
+
+#open{
+  margin-top: 30px;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+#boot{
+  font-weight: bold;
+}
+
+#marco{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+@media screen and (max-width: 920px) {
+  .login{
+    width: 100%;
+    height: 100%;
+  }
+ 
+  #responsive{
+      width: 100%;
+      height: 100%;
+  }
+
+  img{
+      display: none;
+   }
+   #contenedor{
+    display: none;
+   }
+
+   .texto-encima-1, .texto-encima-2, .texto-encima-3{
+    display: none;
+  }
+}
+
+  #contenedor{
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+
+  .texto-encima-1{
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    font-size: calc(40px + 2vmin);
+    color: gainsboro;
+    font-weight: bold;
+}
+
+.texto-encima-2{
+  position: absolute;
+  top: 143px;
+  left: 100px;
+  font-size: calc(35px + 2vmin);
+  color: gainsboro;
+  font-weight: bold;
+}
+
+.texto-encima-3{
+  position: absolute;
+  top: 215px;
+  left: 100px;
+  font-size: calc(12px + 2vmin);
+  color: gainsboro;
+  word-spacing: 0.50em;
+}
+
+  
