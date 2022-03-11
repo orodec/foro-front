@@ -1,8 +1,49 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import Barrasuperior from '../components/pure/barraSuperior'
 import RespuestaList from '../components/containers/respuesta_List'
+import RichTextEditor from '../components/pure/editor'
+
+
+
+
 const Preguntapage = () => {
+
+    const [ver, setver] = useState(true);
+
+   
+ function show(ver) {
+   
+     if (ver) {
+       return (
+         <div style={{display: "flex"}}>
+         <i style={{marginRight: "10px"}} class="bi bi-person-circle"></i>
+         <div onClick={()=>setver(false)} style={{width: "100%", height: "30px", backgroundColor: "#F0F0F3"}}>
+         <p>Escribe una respuesta</p>
+         </div>
+         </div>
+       )
+     }else{
+         return (
+        <div>
+            <div style={{display: "flex"}}>
+                <i style={{marginRight: "10px"}} class="bi bi-person-circle"></i>
+                <div style={{width: "100%"}}>
+                <RichTextEditor></RichTextEditor>
+                </div>
+            </div>   
+            <div style={{display: "flex"}}>
+                <button onClick={()=>setver(true)} type="button" style={{marginTop: "20px", height: "30px", backgroundColor: "white", borderRadius: "10px"}}>Cancelar</button>
+                <button  type="button" class="btn" style={{margin: "23px 0px 0px 8px", padding: "0px 5px 0px 5px", height: "1.6em",  backgroundColor: "#32D4A4", color:"white"}}>Subir pregunta</button>
+            </div>
+            
+        </div>  
+         )
+     }
+    
+   }
+
+
     return (
         <div>
             <Barrasuperior></Barrasuperior>
@@ -48,6 +89,9 @@ const Preguntapage = () => {
             <p style={{fontWeight: "bold", margin: "0px 0px -10px 20px"}}> 2 respuestas</p>
             <div style={{backgroundColor: "white", borderRadius: "10px", margin: "20px", padding: "20px"}} >
                 <RespuestaList></RespuestaList>
+            </div>
+            <div style={{backgroundColor: "white", borderRadius: "10px", margin: "20px", padding: "20px"}}>
+               {show(ver)}
             </div>
 
         </div>

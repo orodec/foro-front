@@ -22,11 +22,11 @@ const Foropage = () => {
                 <img id='logo-foro' src={logo}/>
                 <p>Open Bootcamp</p>
                 </div>
-            <div id="superior-sx">
+                <div id="superior-sx">
                 <i id="opciones" className="bi bi-arrow-bar-down"></i> 
-                <p>Óscar</p>
-                <i id="avatar" class="bi bi-person-circle"></i>  
-                <input id="buscar" type="text" placeholder=" Buscar"></input>
+                <p style={{fontWeight: "bold", marginLeft: "5px", marginRight: "5px"}}>Óscar</p>
+                <i style={{margin:"5px"}} class="bi bi-person-circle"></i>  
+                <input style={{marginRight: "5px", height: "30px"}} id="buscar" type="text" placeholder=" Buscar"></input>
             </div>  
             </div>
             <div id="contenedor">

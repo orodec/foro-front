@@ -1,19 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import foto from '../../media/ProfilePhoto1.png'
 
 const Respuesta = () => {
     return (
         <div style={{marginBottom: "20px"}}>
-             <p style={{fontWeight: "bold", margin: "0px"}}>Este es el título de la pregunta explicado por el usuario</p>
-                    <p style={{fontSize: "0.7em"}} >Publicado por <p style={{display: "inline", fontWeight: "bold"}}>Óscar</p> hace 4 días</p>
+             <div style={{display: "flex"}}>
+             <img src={foto} style={{width: "30px", height: "30px"}}></img>
+             <div style={{width: "100%"}}>
+             <p style={{fontWeight: "bold", margin: "0px"}}>Username</p>
+                    <p style={{fontSize: "0.7em"}} >Publicado hace 4 días</p>
 
                  <div>
-                     <p>Texto de la pregunta</p>
-                     <p>Texto de la pregunta</p>
-                     <p>Texto de la pregunta</p>
-                     <p>Texto de la pregunta</p>
-                     <p>Texto de la pregunta</p>
+                     <p>Texto de la respuesta</p>
+                     <p>Texto de la respuesta</p>
+                     <p>Texto de la respuesta</p>
+                   
                  </div>
 
                  <div style={{display: "flex", justifyContent: "space-between"}}>
@@ -35,8 +37,9 @@ const Respuesta = () => {
                     </div>
                  </div>
                 <div style={{backgroundColor: "grey", height: "2px", width: "100%", marginTop: "20px"}}></div>
+                </div>
             </div>    
-        
+            </div>
     );
 };
 

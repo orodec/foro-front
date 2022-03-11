@@ -1,6 +1,6 @@
 
 body{
-    background: #E5E5E5;
+    background: #F8F8F9;
 }
 
 #contenedor{
@@ -141,7 +141,7 @@ margin: 0px 15px;
 }
 
 #opciones{
-    margin: 7px 15px;
+    margin: 7px 15px 0px 5px;
 }
 
 #derecha{

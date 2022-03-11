@@ -7,7 +7,7 @@ import DiscusionList from '../components/containers/discusion_List'
 
 const Discusionespage = () => {
     return (
-        <div style={{background: "#E5E5E5"}}>
+        <div >
             <div style={{height: "180px", width:"100%", backgroundColor: "#FFFFFF", marginTop: "-20px"}}>
                 <Barrasuperior></Barrasuperior>
                 <div style={{display: "flex", justifyContent: "space-between", marginRight: "45px", marginTop: "40px"}}>

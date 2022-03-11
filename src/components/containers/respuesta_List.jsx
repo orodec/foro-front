@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Respuesta from '../pure/respuestaComponent'
 
-let respuestasArray=[1,2,3]
+let respuestasArray=[1,2]
 
 const RespuestaList = () => {
     return (

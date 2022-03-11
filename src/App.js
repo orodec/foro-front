@@ -8,6 +8,8 @@ import Notfoundpage from './pages/notFoundPage';
 import Foropage from './pages/foroPage';
 import Discusionespage from './pages/discusionesPage'
 import Preguntapage from './pages/preguntaPage'
+import Newpreguntapage from './pages/newPreguntaPage'
+
 function App() {
   return (
     <Router>
@@ -22,6 +24,7 @@ function App() {
     <Route path='/foro' element={ <Foropage/> }/> 
     <Route path='/discusiones' element={ <Discusionespage/> }/> 
     <Route path='/pregunta' element={ <Preguntapage/> }/> 
+    <Route path='/new-pregunta' element={ <Newpreguntapage/> }/> 
 
 
 
