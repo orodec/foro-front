@@ -14,9 +14,9 @@ const Loginpage = () => {
             <img 
             src={foto} 
             className="" alt="Responsive"/>
-            <div class="texto-encima-1">REVOLUCIONA</div>
-            <div class="texto-encima-2">TU CARRERA</div>
-            <div class="texto-encima-3">Y  DA  EL  SALTO  AL  MUNDO  LABORAL</div>
+            <div className="texto-encima-1">REVOLUCIONA</div>
+            <div className="texto-encima-2">TU CARRERA</div>
+            <div className="texto-encima-3">Y  DA  EL  SALTO  AL  MUNDO  LABORAL</div>
             </div>
         </div>
     );

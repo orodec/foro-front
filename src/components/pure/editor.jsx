@@ -37,12 +37,15 @@ class RichTextEditor extends Component {
 	}
 
 	rteChange = (content, delta, source, editor) => {
-		console.log(editor.getHTML()); // rich text
-		console.log(editor.getText()); // plain text
-		console.log(editor.getLength()); // number of characters
+		// console.log(editor.getHTML()); // rich text
+		// console.log(editor.getText()); // plain text
+		// console.log(editor.getLength()); // number of characters	
+		this.props.cuerporespuesta(editor.getHTML());
+		
 	}
 
 	render() {
+		
 	    return (
 	      <div>
 	        <ReactQuill theme="snow"  modules={this.modules}

@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import Discusionprecomponent from '../pure/discusionPreComponent'
 
 
-const DiscusionList = ({preguntas, username}) => {
+const DiscusionListNoFixed = ({preguntas, username}) => {
     console.log(preguntas)
 
     return (
         <div>
              { preguntas.map((pregunta, index) =>{
-                            if(pregunta.fixed){
+                            if(!pregunta.fixed){
                             return (
                                 <Discusionprecomponent className='' key={index}
                                 username={username}
@@ -24,9 +24,9 @@ const DiscusionList = ({preguntas, username}) => {
 };
 
 
-DiscusionList.propTypes = {
+DiscusionListNoFixed.propTypes = {
 
 };
 
 
-export default DiscusionList;
+export default DiscusionListNoFixed;

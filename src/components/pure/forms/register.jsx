@@ -4,29 +4,31 @@ import { Formik, Field, Form } from "formik";
 import * as Yup from "yup";
 import "../../../styles/login.css";
 import logo from "../../../media/Group 106.svg";
-import  {logarse}  from "../../../utils/request";
+import  {logarse, registrarse}  from "../../../utils/request";
 
 const loginSchema = Yup.object().shape({
   email: Yup.string()
     .email("Invalid email format")
     .required("Email is required"),
   password: Yup.string().required("Password is required"),
+  username: Yup.string().required("Username required")
 });
 
-const Loginformik = () => {
+const Registerformik = () => {
   const initialCredentials = {
     email: "",
     password: "",
+    username:""
   };
 
   const navigate = useNavigate();
  
   function handleClick() {
-    navigate("/foro");
+    alert(`El usuario se ha registrado correctamente`);
   }
 
-  function registrate(){
-    navigate("/register");
+  function login(){
+      navigate("/login")
   }
 
   return (
@@ -49,17 +51,17 @@ const Loginformik = () => {
           await localStorage.setItem("credential", values);
           navigate("/foro");
           */
-           await logarse(values)
+           await registrarse(values)
            .then((response) => {   
          console.log(response);
         // console.log(response.data.token);
-         localStorage.setItem('token', response.data.token)
+        // localStorage.setItem('token', response.data.token)
         // let codigo = localStorage.getItem('token')
         //   console.log(localStorage.getItem('token'))  
         handleClick()
             })
             .catch((error) => {
-                alert(`Usuario o contraseña no validos \n ${error}`);
+                alert(`Este email ya está registrado \n ${error}`);
             })
                   }}
       >
@@ -106,22 +108,32 @@ const Loginformik = () => {
                   <p>{errors.password}</p>
                 </div>
               )}
-              <input
-                className="loginItem"
-                type="checkbox"
-                values="Recuerdame"
+              <label className="loginItem" htmlFor="username">
+                Username
+              </label>
+              <Field
+                size="35"
+                id="username"
+                name="username"
+                placeholder="username"
+                type="text"
               />
-              Recuerdame
-              <a href="">¿Has olvidado la contraeña?</a>
+              {errors.username && touched.username && (
+                <div className="error">
+                  <p>{errors.username}</p>
+                </div>
+              )}
+
               <button
                 type="submit"
                 className="btn btn-success "
                 id="boton-login"
               >
-                Login
+                Register
               </button>
-              <p onClick={registrate} style={{cursor:"pointer", color:"#198754", display: "flex", flexDirection: "row", justifyContent: "center"}}>Registrate</p>
-              {isSubmitting ? <p>Login your credentials</p> : null}
+              <p onClick={login} style={{cursor:"pointer", color:"#198754", display: "flex", flexDirection: "row", justifyContent: "center"}}>Login</p>
+
+              {isSubmitting ? <p>Registerin your user</p> : null}
             </Form>
           );
         }}
@@ -137,4 +149,4 @@ const Loginformik = () => {
   );
 };
 
-export default Loginformik;
+export default Registerformik;

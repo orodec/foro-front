@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Respuesta from '../pure/respuestaComponent'
 
-let respuestasArray=[1,2]
 
-const RespuestaList = () => {
+
+const RespuestaList = ({respuestas}) => {
     return (
         <div>
-        { respuestasArray.map((respuesta, index) =>{
+        { respuestas.map((respuesta, index) =>{
                        
                        return (
                            <Respuesta className='' key={index}
