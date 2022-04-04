@@ -8,8 +8,20 @@ const Respuesta = ({respuesta}) => {
 
     function verCuerpo(){
 
-
     }
+
+    function calculaDias(){
+       
+      var fechaInicio = new Date(respuesta.createTime).getTime();
+      
+      var fechaFin    = new Date(Date.now()).getTime();
+
+      var diff = fechaFin - fechaInicio;
+
+      var dias = (diff/(1000*60*60*24) );
+                      // (1000*60*60*24) --> milisegundos -> segundos -> minutos -> horas -> días
+                      return parseInt(dias)
+              }
 
 
     return (
@@ -18,7 +30,7 @@ const Respuesta = ({respuesta}) => {
              <img src={respuesta.avatar} style={{width: "30px", height: "30px"}}></img>
              <div style={{width: "100%"}}>
              <p style={{fontWeight: "bold", margin: "0px"}}>{respuesta.user}</p>
-                    <p style={{fontSize: "0.7em"}} >Publicado hace 4 días</p>
+                    <p style={{fontSize: "0.7em"}} >Publicado hace {calculaDias()} días</p>
 
                  <div>
                    { ReactHtmlParser (respuesta.body)  }     
@@ -35,7 +47,7 @@ const Respuesta = ({respuesta}) => {
                         <p style={{margin: "2px 8px 0px 2px", color: "red"}} >{respuesta.votosNegativos}</p>
                        </div>                        
 
-                    <button type="button" style={{height: "30px", backgroundColor: "white", borderRadius: "10px"}}><i className="bi bi-chat-dots"></i> Responder</button>
+                   
                 
                     </div>
                     <div>

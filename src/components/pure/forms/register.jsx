@@ -53,7 +53,7 @@ const Registerformik = () => {
           */
            await registrarse(values)
            .then((response) => {   
-         console.log(response);
+        // console.log(response);
         // console.log(response.data.token);
         // localStorage.setItem('token', response.data.token)
         // let codigo = localStorage.getItem('token')

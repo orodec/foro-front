@@ -4,7 +4,7 @@ import Discusionprecomponent from '../pure/discusionPreComponent'
 
 
 const DiscusionListNoFixed = ({preguntas, username}) => {
-    console.log(preguntas)
+   // console.log(preguntas)
 
     return (
         <div>

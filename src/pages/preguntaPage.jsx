@@ -3,12 +3,31 @@ import PropTypes from 'prop-types';
 import Barrasuperior from '../components/pure/barraSuperior'
 import RespuestaList from '../components/containers/respuesta_List'
 import RichTextEditor from '../components/pure/editor'
-import {detallePregunta, responder} from '../utils/request'
+import {detallePregunta, responder, SeguirPreguntaRequest} from '../utils/request'
 import {useLocation} from 'react-router-dom';
 import ReactHtmlParser from 'react-html-parser';
  
 
 const Preguntapage = () => {
+
+    function irAresponder(){
+        setver(false);
+        window.scrollTo(0,document.body.scrollHeight);
+        
+    }
+
+    function calculaDias(){
+       
+        var fechaInicio = new Date(pregunta.preguntasDTO.createTime).getTime();
+        
+        var fechaFin    = new Date(Date.now()).getTime();
+  
+        var diff = fechaFin - fechaInicio;
+  
+        var dias = (diff/(1000*60*60*24) );
+                        // (1000*60*60*24) --> milisegundos -> segundos -> minutos -> horas -> días
+                        return parseInt(dias)
+                }
 
     const location = useLocation();
     console.log(location.state.pregunta);
@@ -49,6 +68,7 @@ const [ver, setver] = useState(true);
          </div>
        )
      }else{
+        window.scrollTo(0,document.body.scrollHeight);
          return (
         <div>
             <div style={{display: "flex"}}>
@@ -59,13 +79,17 @@ const [ver, setver] = useState(true);
             </div>   
             <div style={{display: "flex"}}>
                 <button onClick={()=>setver(true)} type="button" style={{marginTop: "20px", height: "30px", backgroundColor: "white", borderRadius: "10px"}}>Cancelar</button>
-                <button onClick={()=>responder(location.state.pregunta.id, nuevaRespuesta)} type="button" className="btn" style={{margin: "23px 0px 0px 8px", padding: "0px 5px 0px 5px", height: "1.6em",  backgroundColor: "#32D4A4", color:"white"}}>Subir pregunta</button>
+                <button onClick={()=>responder(location.state.pregunta.id, nuevaRespuesta)} type="button" className="btn" style={{margin: "23px 0px 0px 8px", padding: "0px 5px 0px 5px", height: "1.6em",  backgroundColor: "#32D4A4", color:"white"}}>Subir respuesta</button>
             </div>
             
         </div>  
          )
      }
     
+   }
+
+   function seguirPregunta(){
+    SeguirPreguntaRequest(location.state.pregunta.id);
    }
 
 
@@ -78,10 +102,10 @@ const [ver, setver] = useState(true);
                 <div style={{backgroundColor: "rgba(40, 237, 178, 0.15)", borderRadius: "10px", width: "140px"}}>    
                     <p style={{color: "#09C598", margin: "4px 3px 0px 3px"}}> Angular/Modulo 1</p>
                 </div>
-                <button type="button" style={{backgroundColor: "white", borderRadius: "10px"}}><i className="bi bi-person-check"></i> Seguir pregunta</button>
+                <button onClick={seguirPregunta} type="button" style={{backgroundColor: "white", borderRadius: "10px"}}><i className="bi bi-person-check"></i> Seguir pregunta</button>
                </div>
                 <p style={{fontWeight: "bold", margin: "0px"}}> { pregunta.preguntasDTO.title } </p>
-                    <p style={{fontSize: "0.7em"}} >Publicado por <span style={{display: "inline", fontWeight: "bold"}}> {pregunta.preguntasDTO.username} </span> hace 4 días</p>
+                    <p style={{fontSize: "0.7em"}} >Publicado por <span style={{display: "inline", fontWeight: "bold"}}> {pregunta.preguntasDTO.username} </span> hace {calculaDias()} días</p>
 
                  <div>
                  {ReactHtmlParser (pregunta.preguntasDTO.body)} 
@@ -98,7 +122,7 @@ const [ver, setver] = useState(true);
                         <p style={{margin: "2px 8px 0px 2px", color: "red"}} >{pregunta.preguntasDTO.votosNegativos}</p>
                        </div>                        
 
-                    <button type="button" style={{height: "30px", backgroundColor: "white", borderRadius: "10px"}}><i className="bi bi-chat-dots"></i> Responder</button>
+                    <button onClick={irAresponder} type="button" style={{height: "30px", backgroundColor: "white", borderRadius: "10px"}}><i className="bi bi-chat-dots"></i> Responder</button>
                 
                     </div>
                     <div>

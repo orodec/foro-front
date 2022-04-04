@@ -4,6 +4,7 @@ import logo from '../media/Group 106.svg'
 import angular from '../media/Icon.svg'
 
 
+
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'bootstrap/dist/css/bootstrap.css'
 import TarjetaList from "../components/containers/tarjeta_List";
@@ -13,6 +14,8 @@ import CursoList from "../components/containers/curso_List"
 
 
 const Foropage = () => {
+
+  
     
    
     const [nombre, setnombre] = useState();

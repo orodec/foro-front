@@ -5,6 +5,8 @@ import * as Yup from "yup";
 import "../../../styles/login.css";
 import logo from "../../../media/Group 106.svg";
 import  {logarse}  from "../../../utils/request";
+import socket from "../../../utils/sockets";
+
 
 const loginSchema = Yup.object().shape({
   email: Yup.string()
@@ -14,14 +16,17 @@ const loginSchema = Yup.object().shape({
 });
 
 const Loginformik = () => {
+
   const initialCredentials = {
     email: "",
     password: "",
   };
 
+
   const navigate = useNavigate();
  
-  function handleClick() {
+  function handleClick(values) {
+    socket(values.email);
     navigate("/foro");
   }
 
@@ -51,12 +56,12 @@ const Loginformik = () => {
           */
            await logarse(values)
            .then((response) => {   
-         console.log(response);
+        // console.log(response);
         // console.log(response.data.token);
          localStorage.setItem('token', response.data.token)
         // let codigo = localStorage.getItem('token')
         //   console.log(localStorage.getItem('token'))  
-        handleClick()
+        handleClick(values)
             })
             .catch((error) => {
                 alert(`Usuario o contraseña no validos \n ${error}`);
